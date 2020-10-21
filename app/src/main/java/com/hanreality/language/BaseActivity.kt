@@ -1,7 +1,8 @@
 package com.hanreality.language
 
-import android.os.Bundle
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
+import com.beibei.android.language.I18NHelper
 
 /**
  * Created by han.chen.
@@ -9,7 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
  **/
 open class BaseActivity :AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun applyOverrideConfiguration(overrideConfiguration: Configuration?) {
+        overrideConfiguration?.setLocale(I18NHelper.getInstance().getSetLocale())
+        super.applyOverrideConfiguration(overrideConfiguration)
     }
 }
